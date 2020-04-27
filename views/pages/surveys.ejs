@@ -58,7 +58,32 @@
       </div> 
       <div id="content">
         <h1>Surveys</h1>
-        <p>Survey questions to appear here.</p>
+        <table border="1" cellpadding="7" cellspacing="7">
+  	<tr>
+    	<th width="50px">No</th>
+    	<th>Question ID Number</th>
+    	<th>Question Title</th>
+    	<th>Possible Answer Number</th>
+    	<th>Possible Answer Type</th>
+    	<th>Possible Answer Value</th>
+  	</tr>
+  	<% if(data.length){ 
+    		for(var i = 0;i < data.length;i++) { %>
+  		<tr>
+    		<td><%=(i+1)%></td>
+    		<td><%=data[i].question_ID%></td>
+    		<td><%=data[i].question%></td>
+    		<td><%=data[i].pa_ID%></td>
+    		<td><%=data[i].text%></td>
+    		<td><%=data[i].value%></td>
+  		</tr>
+ 		 <% }
+  	}else{ %>
+  		<tr>
+    		<td colspan="3">No Results</td>
+  		</tr>
+	<% } %>
+	</table>
                 
       </div>
     </div>
