@@ -329,7 +329,7 @@ app.post('/GetTeamData', urlencodedParser, function (req, res) {
     		if (err) throw err;
 			console.log(result);
 			rows = result;
-			res.render('pages/surveyResults.ejs', { page_title: "Test Table", data: rows });
+			res.render('pages/teams.ejs', { page_title: "Test Table", data: rows });
 	});
 
 });
