@@ -184,7 +184,10 @@ app.post('/create', urlencodedParser, function (req, res) {
 	res.render('pages/createMember.ejs');
 });
 //--------------------------------------------------------------------------------------------------------------------
-
+app.post('/modSurvey', urlencodedParser, function (req, res) {
+	console.log("Modding Survey");
+	res.render('pages/modifySurveys.ejs');
+});
 
 //------------------------------------------------------------------------------------------------------------------
 // Test Page
