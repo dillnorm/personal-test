@@ -329,7 +329,6 @@ app.post('/getTeams', urlencodedParser, function (req, res) {
 			console.log(result);
 			rows = result;
 			res.render('pages/surveyResults.ejs', { page_title: "Test Table", data: rows });
-		});
 	});
 
 });
