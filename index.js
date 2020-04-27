@@ -202,7 +202,8 @@ app.get("/passwordChange.html", function (req, res) {
 });
 app.get("/surveys.html", function (req, res) {
 	rows = 0;
-	var sql = "SELECT email, password FROM ig9o8wsh8i2eqon4.Account WHERE email = '"+Email+"' AND password ='"+pass+"'";
+	console.log("Testing SQL");
+	var sql = "SELECT * FROM Questions INNER JOIN PossibleAnswers ON Questions.question_ID = PossibleAnswers.question_ID";
   	con.query(sql,function (err, result) {
     		if (err) throw err;
     		console.log(result);
