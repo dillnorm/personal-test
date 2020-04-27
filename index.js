@@ -320,6 +320,19 @@ app.post('/getSurvey', urlencodedParser, function (req, res) {
 	});
 
 });
+app.post('/getTeams', urlencodedParser, function (req, res) {
+	var table;
+	console.log("Displaying Atheletes Table");
+	var sql = "SELECT * FROM Account INNER JOIN Athletes ON Account.Account_ID = Athletes.Account_ID;";
+  	con.query(sql,function (err, result) {
+    		if (err) throw err;
+			console.log(result);
+			rows = result;
+			res.render('pages/surveyResults.ejs', { page_title: "Test Table", data: rows });
+		});
+	});
+
+});
 //-------------------------------------------------------------------------------------------------------------------------------------------
 //==================================================================================================================================
 //Action to add question results in the database

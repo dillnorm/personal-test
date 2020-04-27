@@ -35,10 +35,26 @@
       <div id="content">
         <h1>Team and Athlete Data</h1>
 		<h3>Select Team/Athletes to View Data</h3>
-		<form action="#" method="post">
+		<form action="/GetTeamData" method="post">
           <div class="form_settings">
 			<h4>Select Team</h4>
-			<p><select id="id" name="TeamSelect"><option value="1">All Teams</option><option value="2">Soccer Team</option></select></p>
+			<p><select id="id" name="TeamSelect">
+				<option value="20">All Teams</option>
+				<option value="1">Baseball</option>
+				<option value="2">Basketball (Mens) </option>
+				<option value="3">Basketball (Womens) </option>
+				<option value="4">Cheer</option>
+				<option value="5">Golf</option>
+				<option value="6">Rifle</option>
+				<option value="7">Soccer (Mens) </option>
+				<option value="8">Soccer (Womens) </option>
+				<option value="9">Softball</option>
+				<option value="10">Swim and Dive</option>
+				<option value="11">Tennis (Mens)</option>
+				<option value="12">Tennis (Womens) </option>
+				<option value="13">Track & Cross Country</option>
+				<option value="14">Volley ball</option>
+			</select></p>
 			<h4>Select Athlete</h4>
 			<p><select id="id" name="AthleteSelect"><option value="1">Entire Team</option><option value="2">Thomas Muller</option></select></p>
 			<h4>Select Question From Which To View Data</h4>
@@ -53,20 +69,19 @@
 		<table border="1" cellpadding="7" cellspacing="7">
   		<tr>
     		<th width="50px">No</th>
-    		<th>First Name</th>
-    		<th>Last Name</th>
-    		<th>Email</th>
-    		<th>EagleID</th>
-    		<th>Survey Score</th>
+    		<th>Athlete Name</th>
+    		<th>Athlete Email</th>
+    		<th>Team ID</th>
+    		<th>Completed Survey</th>
   		</tr>
   		<% if(data.length){ 
     			for(var i = 0;i < data.length;i++) { %>
   			<tr>
    			<td><%=(i+1)%></td>
-    			<td><%=data[i].fname%></td>
-    			<td><%=data[i].lname%></td>
+    			<td><%=data[i].full_name%></td>
     			<td><%=data[i].email%></td>
-    			<td><%=data[i].EagleID%></td>
+    			<td><%=data[i].team_ID%></td>
+    			<td><%=data[i].survey_done%></td>
   			</tr>
   		<% }
   		}else{ %>
