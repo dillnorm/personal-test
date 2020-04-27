@@ -291,7 +291,7 @@ app.post('/getUsers', urlencodedParser, function (req, res) {
 			if (err) throw err;
 			console.log(result);
 			rows = result;
-			res.render('pages/userResults.ejs', { page_title: "Test Table", data: rows });
+			res.render('pages/teams.ejs', { page_title: "Test Table", data: rows });
 			db.close();
 		});
 	});
@@ -320,9 +320,10 @@ app.post('/getSurvey', urlencodedParser, function (req, res) {
 	});
 
 });
-app.post('/getTeams', urlencodedParser, function (req, res) {
+app.post('/GetTeamData', urlencodedParser, function (req, res) {
 	var table;
 	console.log("Displaying Atheletes Table");
+	console.log(req.TeamSelect);
 	var sql = "SELECT * FROM Account INNER JOIN Athletes ON Account.Account_ID = Athletes.Account_ID;";
   	con.query(sql,function (err, result) {
     		if (err) throw err;
