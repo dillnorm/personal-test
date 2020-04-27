@@ -80,7 +80,13 @@
    			<td><%=(i+1)%></td>
     			<td><%=data[i].full_name%></td>
     			<td><%=data[i].email%></td>
-    			<td><%=data[i].team_ID%></td>
+    			<td><%if(data[i].team_ID == 1){
+				= "BaseBall";
+				}
+				else if(data[i].team_ID == 2){
+				= "Basketball (Mens)";
+				}
+			%></td>
     			<td><%=data[i].survey_done%></td>
   			</tr>
   		<% }
