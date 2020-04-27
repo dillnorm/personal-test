@@ -201,7 +201,14 @@ app.get("/passwordChange.html", function (req, res) {
 	res.render('pages/passwordChange.ejs');
 });
 app.get("/surveys.html", function (req, res) {
-	res.render('pages/surveys.ejs');
+	rows = 0;
+	var sql = "SELECT email, password FROM ig9o8wsh8i2eqon4.Account WHERE email = '"+Email+"' AND password ='"+pass+"'";
+  	con.query(sql,function (err, result) {
+    		if (err) throw err;
+    		console.log(result);
+		rows = result;
+		res.render('pages/surveys.ejs', { page_title: "Test Table", data: rows });
+	});
 });
 app.get("/teams.html", function (req, res) {
 	rows = 0;
@@ -210,11 +217,8 @@ app.get("/teams.html", function (req, res) {
 app.get("/index.html", function (req, res) {
 	res.render('pages/main.ejs');
 });
-app.get('/test1', urlencodedParser, function (req, res) {
-});
-app.post('/test1', urlencodedParser, function (req, res) {
-	console.log("Test Personal");
-	res.render('pages/personal.ejs');
+app.get("/contact.html", function (req, res) {
+	res.render('pages/contactInfo.ejs');
 });
 
 //--------------------------------------------------------------------------------------------------------------------
